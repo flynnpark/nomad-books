@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:perfectionist/recommended-natural"
+  ],
+  "plugins": ["perfectionist", "unused-imports"],
+  "rules": {
+    "perfectionist/sort-objects": [
+      "error",
+      {
+        "order": "asc",
+        "type": "natural"
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "vars": "all",
+        "varsIgnorePattern": "^_"
+      }
+    ]
+  }
+}
