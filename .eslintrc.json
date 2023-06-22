@@ -4,8 +4,10 @@
     "prettier",
     "plugin:perfectionist/recommended-natural"
   ],
-  "plugins": ["perfectionist", "unused-imports"],
+  "plugins": ["@tanstack/query", "perfectionist", "unused-imports"],
   "rules": {
+    "@tanstack/query/exhaustive-deps": "error",
+    "@tanstack/query/prefer-query-object-syntax": "error",
     "perfectionist/sort-objects": [
       "error",
       {
