@@ -4,6 +4,7 @@ interface BaseResponse<T> {
   copyright: string;
   num_results: number;
   results: T;
+  status: string;
 }
 
 interface BookList {
