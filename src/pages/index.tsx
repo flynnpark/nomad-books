@@ -1,6 +1,9 @@
 import { QueryClient, dehydrate, useQuery } from '@tanstack/react-query';
 
 import { getBookLists } from '~/api';
+import ListItem from '~/components/ListsItem';
+
+import { ListsContainer, PageWrapper } from './styled';
 
 const getQueryKey = () => ['bookLists'];
 
@@ -22,5 +25,18 @@ export default function Home() {
     queryKey: getQueryKey(),
   });
 
-  return <h1>{data?.status}</h1>;
+  return (
+    <PageWrapper>
+      <h1>The New York Times Best Seller Explorer</h1>
+      <ListsContainer>
+        {data?.results.map((item) => (
+          <ListItem
+            href={`/book-lists/${item.list_name_encoded}`}
+            key={item.list_name}
+            title={item.display_name}
+          />
+        ))}
+      </ListsContainer>
+    </PageWrapper>
+  );
 }
