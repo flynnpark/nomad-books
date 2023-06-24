@@ -3,6 +3,7 @@ import { GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
 
 import { getBookListDetail } from '~/api';
+import Book from '~/components/Book';
 
 const getQueryKey = (name: string) => ['bookLists', { name }];
 
@@ -32,7 +33,21 @@ function BookList() {
     queryKey: getQueryKey(name),
   });
 
-  return <h1>{data?.status}</h1>;
+  return (
+    <>
+      <h1>{data?.results.display_name}</h1>
+      <div>
+        {data?.results.books.map((book) => (
+          <Book
+            coverUrl={book.book_image}
+            key={book.primary_isbn13}
+            purchaseUrl={book.amazon_product_url}
+            title={book.title}
+          />
+        ))}
+      </div>
+    </>
+  );
 }
 
 export default BookList;

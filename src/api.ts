@@ -12,10 +12,11 @@ export async function getBookLists() {
 }
 
 export async function getBookListDetail(name: string) {
-  const { data } = await apiClient.get<GetBookListDetailResponse>('/lists', {
+  const { data } = await apiClient.get<GetBookListDetailResponse>('/list', {
     params: {
       name,
     },
   });
+
   return data;
 }
