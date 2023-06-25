@@ -1,6 +1,7 @@
 import ProfileItem, {
   Props as ProfileItemProps,
 } from '~/components/ProfileItem';
+import Seo from '~/components/Seo';
 import { PageTitle } from '~/styles/layout';
 
 const items: ProfileItemProps[] = [
@@ -19,8 +20,11 @@ const items: ProfileItemProps[] = [
 ];
 
 function About() {
+  const title = 'About';
+
   return (
     <>
+      <Seo title={title} />
       <PageTitle>Flynn Park</PageTitle>
       {items.map((item) => (
         <ProfileItem key={item.name} name={item.name} value={item.value} />

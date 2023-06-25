@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 
 import { getBookListDetail } from '~/api';
 import Book from '~/components/Book';
+import Seo from '~/components/Seo';
 import { PageTitle } from '~/styles/layout';
 
 import { BooksContainer } from './styled';
@@ -38,6 +39,7 @@ function BookList() {
 
   return (
     <>
+      <Seo title={data?.results.display_name} />
       <PageTitle>{data?.results.display_name}</PageTitle>
       <BooksContainer>
         {data?.results.books.map((book) => (

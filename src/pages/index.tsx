@@ -2,6 +2,7 @@ import { QueryClient, dehydrate, useQuery } from '@tanstack/react-query';
 
 import { getBookLists } from '~/api';
 import ListItem from '~/components/ListsItem';
+import Seo from '~/components/Seo';
 import { PageTitle } from '~/styles/layout';
 
 import { ListsContainer } from './styled';
@@ -26,9 +27,12 @@ export default function Home() {
     queryKey: getQueryKey(),
   });
 
+  const title = 'The New York Times Best Seller Explorer';
+
   return (
     <>
-      <PageTitle>The New York Times Best Seller Explorer</PageTitle>
+      <Seo title={title} />
+      <PageTitle>{title}</PageTitle>
       <ListsContainer>
         {data?.results.map((item) => (
           <ListItem
