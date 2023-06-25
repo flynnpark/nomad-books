@@ -1,5 +1,5 @@
 import Menu from './Menu';
-import { MenuItems, Navigator } from './styled';
+import { MenuItems, Navigator } from './styles';
 
 function Header() {
   return (

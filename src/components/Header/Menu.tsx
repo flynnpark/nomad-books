@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
-import { MenuItem } from './styled';
+import { MenuItem } from './styles';
 
 interface Props extends PropsWithChildren {
   to: string;
