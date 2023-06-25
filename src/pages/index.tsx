@@ -2,8 +2,9 @@ import { QueryClient, dehydrate, useQuery } from '@tanstack/react-query';
 
 import { getBookLists } from '~/api';
 import ListItem from '~/components/ListsItem';
+import { PageTitle } from '~/styles/layout';
 
-import { ListsContainer, PageWrapper } from './styled';
+import { ListsContainer } from './styled';
 
 const getQueryKey = () => ['bookLists'];
 
@@ -26,8 +27,8 @@ export default function Home() {
   });
 
   return (
-    <PageWrapper>
-      <h1>The New York Times Best Seller Explorer</h1>
+    <>
+      <PageTitle>The New York Times Best Seller Explorer</PageTitle>
       <ListsContainer>
         {data?.results.map((item) => (
           <ListItem
@@ -37,6 +38,6 @@ export default function Home() {
           />
         ))}
       </ListsContainer>
-    </PageWrapper>
+    </>
   );
 }

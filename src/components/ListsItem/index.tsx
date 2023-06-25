@@ -9,9 +9,9 @@ interface Props {
 
 function ListItem({ href, title }: Props) {
   return (
-    <ListItemContainer>
-      <Link href={href}>{title}</Link>
-    </ListItemContainer>
+    <Link href={href}>
+      <ListItemContainer>{title}</ListItemContainer>
+    </Link>
   );
 }
 

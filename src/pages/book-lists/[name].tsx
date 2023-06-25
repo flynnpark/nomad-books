@@ -4,6 +4,9 @@ import { useRouter } from 'next/router';
 
 import { getBookListDetail } from '~/api';
 import Book from '~/components/Book';
+import { PageTitle } from '~/styles/layout';
+
+import { BooksContainer } from './styled';
 
 const getQueryKey = (name: string) => ['bookLists', { name }];
 
@@ -35,17 +38,18 @@ function BookList() {
 
   return (
     <>
-      <h1>{data?.results.display_name}</h1>
-      <div>
+      <PageTitle>{data?.results.display_name}</PageTitle>
+      <BooksContainer>
         {data?.results.books.map((book) => (
           <Book
+            author={book.author}
             coverUrl={book.book_image}
             key={book.primary_isbn13}
             purchaseUrl={book.amazon_product_url}
             title={book.title}
           />
         ))}
-      </div>
+      </BooksContainer>
     </>
   );
 }

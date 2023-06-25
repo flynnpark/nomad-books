@@ -6,7 +6,8 @@ export const Navigator = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px 0;
+  padding: 30px 0;
+  border-bottom: 1px solid;
 `;
 
 export const MenuContainer = styled.div`
